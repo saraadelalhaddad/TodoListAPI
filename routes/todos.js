@@ -1,23 +1,23 @@
-const express = require('express')
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
 const {
   todoCreate,
   todoList,
-  //   candyUpdate,
-  //   candyDelete,
-} = require('../controllers/todosController')
+  //   todoUpdate,
+  todoDelete,
+} = require("../controllers/todosController");
 // const slugify = require('slugify')
 
 // Todo Create
-router.post('/', todoCreate)
+router.post("/", todoCreate);
 
 // // Todo List
-router.get('/', todoList)
+router.get("/", todoList);
 
-// // Candy Update
-// router.put("/:candyId", candyUpdate);
+// // Todo Update
+// router.put("/:todoId", todoUpdate);
 
-// // Candy Delete
-// router.delete("/:candyId", candyDelete);
+// Todo Delete
+router.delete("/:todoId", todoDelete);
 
-module.exports = router
+module.exports = router;
