@@ -1,18 +1,18 @@
-// const express = require("express");
-// const router = express.Router();
-// const {
-//   candyCreate,
-//   candyList,
-//   candyUpdate,
-//   candyDelete,
-// } = require("../controllers/candiesController");
-// const slugify = require("slugify");
+const express = require('express')
+const router = express.Router()
+const {
+  todoCreate,
+  todoList,
+  //   candyUpdate,
+  //   candyDelete,
+} = require('../controllers/todosController')
+// const slugify = require('slugify')
 
-// // Candy Create
-// router.post("/", candyCreate);
+// Todo Create
+router.post('/', todoCreate)
 
-// // Candy List
-// router.get("/", candyList);
+// // Todo List
+router.get('/', todoList)
 
 // // Candy Update
 // router.put("/:candyId", candyUpdate);
@@ -20,4 +20,4 @@
 // // Candy Delete
 // router.delete("/:candyId", candyDelete);
 
-// module.exports = router;
+module.exports = router

@@ -1,15 +1,15 @@
-// let candies = require("../todos");
-// const slugify = require("slugify");
+let todos = require('../todos')
+const slugify = require('slugify')
 
-// exports.todoCreate = (req, res) => {
-//   const id = todos[todos.length - 1].id + 1;
-//   const slug = slugify(req.body.name, { lower: true });
-//   const newTodo = { id, slug, ...req.body }; // id, slug are equivalent to id: id, slug: slug
-//   candies.push(newTodo);
-//   res.status(201).json(newTodo);
-// };
+exports.todoCreate = (req, res) => {
+  const id = todos[todos.length - 1].id + 1
+  const slug = slugify(req.body.name, { lower: true })
+  const newTodo = { id, slug, ...req.body } // id, slug are equivalent to id: id, slug: slug
+  todos.push(newTodo)
+  res.status(201).json(newTodo)
+}
 
-// exports.todoList = (req, res) => res.json(todos);
+exports.todoList = (req, res) => res.json(todos)
 
 // exports.todoUpdate = (req, res) => {
 //   const { todoId } = req.params;
