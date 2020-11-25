@@ -9,19 +9,12 @@ exports.todoCreate = (req, res) => {
   res.status(201).json(newTodo)
 }
 
-exports.todoList = (req, res) => res.json(todos)
-
 exports.todoUpdate = (req, res) => {
   const { todoId } = req.params
   const foundTodo = todos.find((todo) => todo.id === +todoId)
-  if (foundTodo) {
-    for (const key in req.body) foundTodo[key] = req.body[key]
-    // foundTodo.slug = slugify(req.body.name, { lower: true })
-    foundTodo.status = !foundTodo.status
-    res.status(204).end()
-  } else {
-    res.status(404).json({ message: 'Todo not found' })
-  }
+  for (const key in req.body) foundTodo[key] = req.body[key]
+  // foundTodo.status = !foundTodo.status
+  res.status(204).end()
 }
 
 exports.todoDelete = (req, res) => {
@@ -34,3 +27,5 @@ exports.todoDelete = (req, res) => {
     res.status(404).json({ message: 'Todo not found' })
   }
 }
+
+exports.todoList = (req, res) => res.json(todos)
